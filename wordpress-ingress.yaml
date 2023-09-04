@@ -1,0 +1,22 @@
+##########################################################################
+# Ingress resource (gateway)
+##########################################################################
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gateway
+spec:
+  rules:
+    - host: hello-world2.info
+      http:
+        paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: nginx
+              port:
+                number: 80
+
+
+
